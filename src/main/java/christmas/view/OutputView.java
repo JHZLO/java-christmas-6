@@ -9,7 +9,6 @@ import static christmas.constants.ViewMessage.NOTICE_GIFT;
 import static christmas.constants.ViewMessage.NOTICE_MENU;
 import static christmas.constants.ViewMessage.NOTICE_PRE_TOTAL_PRICE;
 
-import christmas.dto.OrdersDto;
 
 public class OutputView {
     public void printHeaderNotice() {

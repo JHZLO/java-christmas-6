@@ -13,7 +13,7 @@ import christmas.domain.discount.strategies.Gift;
 import christmas.domain.discount.strategies.SpecialDiscount;
 import christmas.domain.discount.strategies.WeekdayDiscount;
 import christmas.domain.discount.strategies.WeekendDiscount;
-import christmas.domain.discount.strategies.XmasDdayDiscount;
+import christmas.domain.discount.strategies.XmasDiscount;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ public final class DiscountManager {
 
     private Map<String, Discount> initializeDiscountStrategies() {
         return Map.ofEntries(
-            Map.entry(XMAS_DISCOUNT_STRING, new XmasDdayDiscount()),
+            Map.entry(XMAS_DISCOUNT_STRING, new XmasDiscount()),
             Map.entry(SPECIAL_DISCOUNT_STRING, new SpecialDiscount()),
             Map.entry(WEEKDAY_DISCOUNT_STRING, new WeekdayDiscount()),
             Map.entry(WEEKEND_DISCOUNT_STRING, new WeekendDiscount()),

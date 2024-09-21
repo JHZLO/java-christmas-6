@@ -1,8 +1,10 @@
 package christmas.util.format;
 
+import static christmas.constants.Symbol.COLON;
 import static christmas.constants.Symbol.FORMAT_NUMBER;
+import static christmas.constants.Symbol.MINUS;
 import static christmas.constants.Symbol.NEW_LINE;
-import static christmas.constants.Symbol.PRINT_MINUS;
+import static christmas.constants.Symbol.WHITE_SPACE;
 import static christmas.constants.ViewMessage.NON_BENEFIT;
 
 import java.util.Map;
@@ -15,7 +17,9 @@ public class DiscountFormatUtil {
         }
         discountResults.forEach((discountName, amount) ->
             result.append(discountName)
-                .append(PRINT_MINUS)
+                .append(COLON)
+                .append(WHITE_SPACE)
+                .append(MINUS)
                 .append(String.format(FORMAT_NUMBER, amount))
                 .append(NEW_LINE)
         );

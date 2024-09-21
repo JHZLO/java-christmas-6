@@ -6,7 +6,6 @@ import static christmas.constants.exception.error.ErrorMessage.INVALID_DATE;
 import static christmas.constants.exception.error.ErrorMessage.INVALID_ORDER;
 
 import christmas.constants.exception.InputException;
-import java.util.List;
 
 public class UserInputValidator {
     public static void validateStringToDate(String input) { // 문자열-> 숫자 검증 과정
