@@ -1,6 +1,5 @@
 package christmas.service;
 
-import christmas.domain.discount.Discount;
 import christmas.domain.discount.DiscountManager;
 import christmas.dto.BenefitDto;
 import christmas.dto.DiscountDto;
@@ -12,8 +11,7 @@ public class DiscountService {
         DiscountManager discountManager = new DiscountManager(ordersDto.orders(),
             benefitDto.gift());
         Map<String, Integer> discounts = discountManager.getAvailableDiscounts();
-        int preTotalPrice = ordersDto.orders().calculatePreTotalPrice();
-        return new DiscountDto(discounts, preTotalPrice - sumAllPrice(discounts));
+        return new DiscountDto(discounts, sumAllPrice(discounts));
     }
 
     private Integer sumAllPrice(Map<String, Integer> discounts) {

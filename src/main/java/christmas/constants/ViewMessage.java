@@ -9,7 +9,10 @@ public enum ViewMessage {
     NOTICE_PRE_TOTAL_PRICE("<할인 전 총주문 금액>"),
     NOTICE_GIFT("<증정 메뉴>"),
     NOTICE_DISCOUNT("<혜택 내역>"),
-    NON_BENEFIT("없음");
+    NON_CONTENT("없음"),
+    NOTICE_TOTAL_DISCOUNT("<총혜택 금액>"),
+    NOTICE_PRICE_AFTER_DISCOUNT("<할인 후 예상 결제 금액>"),
+    NOTICE_BADGE_TYPE("<12월 이벤트 배지>");
 
     private final String message;
 

@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Orders {
-
     private final List<OrderProduct> orderProducts;
     private final VisitDateDto visitDateDto;
 

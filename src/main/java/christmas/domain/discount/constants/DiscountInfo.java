@@ -2,7 +2,7 @@ package christmas.domain.discount.constants;
 
 import java.util.List;
 
-public class DiscountInfo {
+public class DiscountInfo { // TODO: String, Integer 클래스 분리
     public static final List<Integer> SPECIAL = List.of(3, 10, 17, 24, 25, 31);
     public static final String DEFAULT_GIFT_QUANTITY = "1개";
     public static final String GIFT_DISCOUNT_STRING = "증정 이벤트";

@@ -44,8 +44,7 @@ public class UserInputValidator {
 
     public static int validateInteger(String input) {
         try {
-            int count = Integer.parseInt(input);
-            return count;
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new InputException(INVALID_ORDER);
         }

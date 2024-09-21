@@ -10,7 +10,6 @@ import christmas.domain.vo.Product;
 import java.util.Objects;
 
 public class OrderProduct {
-
     private final Product product;
     private final int count;
 

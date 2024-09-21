@@ -1,12 +1,14 @@
 package christmas.controller;
 
 import christmas.constants.exception.InputException;
+import christmas.domain.vo.BadgeType;
 import christmas.dto.BenefitDto;
 import christmas.dto.DiscountDto;
 import christmas.dto.OrdersDto;
 import christmas.dto.VisitDateDto;
 import christmas.service.CalculateService;
 import christmas.service.DiscountService;
+import christmas.util.format.BadgeFormatUtil;
 import christmas.util.format.OrdersFormatUtil;
 import christmas.util.parser.DateParserUtil;
 import christmas.util.format.DiscountFormatUtil;
@@ -41,6 +43,9 @@ public class EventPlannerController {
         outputPreTotalPrice();
         outputGiftAvailable();
         outputDiscountResult();
+        outputTotalDiscoutPrice();
+        outputTotalPriceAfterDiscount();
+        outputEventBadgeType();
     }
 
     private void runUntilNoException(Runnable runnable) {
@@ -87,9 +92,27 @@ public class EventPlannerController {
         String giftMessage = benefitDto.getGiftMessage();
         outputView.printIsGiftAvailable(giftMessage);
     }
-    private void outputDiscountResult(){ // 할인 혜택 내역 결과 출력
-        discountDto = discountService.createDiscountDto(ordersDto,benefitDto);
+
+    private void outputDiscountResult() { // 할인 혜택 내역 결과 출력
+        discountDto = discountService.createDiscountDto(ordersDto, benefitDto);
         String discountMessage = DiscountFormatUtil.formatDiscountResults(discountDto.discounts());
         outputView.printDiscoutResults(discountMessage);
+    }
+
+    private void outputTotalDiscoutPrice() { // 총 혜택 금액 출력
+        String totalDiscountMessage = DiscountFormatUtil.formatTotalDiscount(discountDto);
+        outputView.printTotalDiscountPrice(totalDiscountMessage);
+    }
+
+    private void outputTotalPriceAfterDiscount() { // 할인 후 예상 금액 출력
+        String totalPriceMessage = DiscountFormatUtil.formatTotalPriceAfterDiscount(ordersDto,
+            discountDto);
+        outputView.printTotalPriceAfterDiscount(totalPriceMessage);
+    }
+
+    private void outputEventBadgeType() { // 12월 이벤트 배지 출력
+        BadgeType badgeType = calculateService.calculateBadgeType(discountDto);
+        String badgeTypeMessage = BadgeFormatUtil.formatBadgeType(badgeType);
+        outputView.printBadgeType(badgeTypeMessage);
     }
 }
