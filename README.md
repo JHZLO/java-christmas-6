@@ -72,8 +72,13 @@
     - 이벤트 배지 출력
 ---
 - ## util
-    - ### `DateParserUtil`
-    - ### `OrderParserUtil`
+  - ### format
+    - #### `BadgeFormatUtil`
+    - #### `DiscountFormatUtil`
+    - #### `OrdersFormatUtil`
+  - ### parser
+    - #### `DateParserUtil`
+    - #### `OrderParserUtil`
 ---
 - ## validator
   - ### `userInputValidator`
