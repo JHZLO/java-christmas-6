@@ -1,13 +1,12 @@
 package christmas.domain.discount.strategies;
 
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL;
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL_DISCOUNT_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL_DISCOUNT_STRING;
+import static christmas.domain.discount.constants.DiscountNumeric.SPECIAL;
+import static christmas.domain.discount.constants.DiscountNumeric.SPECIAL_DISCOUNT_PRICE;
+import static christmas.domain.discount.constants.DiscountLabel.SPECIAL_DISCOUNT;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import christmas.domain.OrderProduct;
 import christmas.domain.Orders;
-import christmas.domain.discount.strategies.SpecialDiscount;
 import christmas.domain.vo.Product;
 import christmas.dto.VisitDateDto;
 import java.util.List;
@@ -67,7 +66,7 @@ public class SpecialDiscountTest {
         String discountName = specialDiscount.getDiscountName();
 
         // then
-        assertThat(discountName).isEqualTo(SPECIAL_DISCOUNT_STRING);
+        assertThat(discountName).isEqualTo(SPECIAL_DISCOUNT.toString());
     }
 
     static Stream<Integer> provideSpecialDates() {

@@ -1,12 +1,11 @@
 package christmas.domain.discount.strategies;
 
-import static christmas.domain.discount.constants.DiscountInfo.WEEKDAY_DISCOUNT_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.WEEKDAY_DISCOUNT_STRING;
+import static christmas.domain.discount.constants.DiscountNumeric.WEEKDAY_DISCOUNT_PRICE;
+import static christmas.domain.discount.constants.DiscountLabel.WEEKDAY_DISCOUNT;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 import christmas.domain.OrderProduct;
 import christmas.domain.Orders;
-import christmas.domain.discount.strategies.WeekdayDiscount;
 import christmas.domain.vo.Product;
 import christmas.dto.VisitDateDto;
 import java.util.List;
@@ -62,7 +61,7 @@ public class WeekdayDiscountTest {
         String discountName = weekdayDiscount.getDiscountName();
 
         // then
-        assertThat(discountName).isEqualTo(WEEKDAY_DISCOUNT_STRING);
+        assertThat(discountName).isEqualTo(WEEKDAY_DISCOUNT.toString());
     }
 
     @Test

@@ -1,9 +1,9 @@
 package christmas.domain.discount.strategies;
 
-import static christmas.domain.discount.constants.DiscountInfo.XMAS_DEFAULT_DISCOUNT_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.XMAS_DISCOUNT_END_DAY;
-import static christmas.domain.discount.constants.DiscountInfo.XMAS_DISCOUNT_PER_DAY_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.XMAS_DISCOUNT_STRING;
+import static christmas.domain.discount.constants.DiscountNumeric.XMAS_DEFAULT_DISCOUNT_PRICE;
+import static christmas.domain.discount.constants.DiscountNumeric.XMAS_DISCOUNT_END_DAY;
+import static christmas.domain.discount.constants.DiscountNumeric.XMAS_DISCOUNT_PER_DAY_PRICE;
+import static christmas.domain.discount.constants.DiscountLabel.XMAS_DISCOUNT;
 
 import christmas.domain.Orders;
 import christmas.domain.discount.Discount;
@@ -17,7 +17,7 @@ public class XmasDdayDiscount implements Discount {
 
     @Override
     public String getDiscountName() {
-        return XMAS_DISCOUNT_STRING;
+        return XMAS_DISCOUNT.toString();
     }
 
     private int getDiscountPrice(int orderDay) {

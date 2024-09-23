@@ -17,23 +17,15 @@ import christmas.view.InputView;
 import christmas.view.OutputView;
 
 public class EventPlannerController {
-    private final InputView inputView;
-    private final OutputView outputView;
-    private final CalculateService calculateService;
-    private final DiscountService discountService;
+    private final InputView inputView = new InputView();
+    private final OutputView outputView = new OutputView();
+    private final CalculateService calculateService = new CalculateService();
+    private final DiscountService discountService = new DiscountService();
 
     private VisitDateDto visitDateDto;
     private BenefitDto benefitDto;
     private OrdersDto ordersDto;
     private DiscountDto discountDto;
-
-    public EventPlannerController(InputView inputView, OutputView outputView,
-        CalculateService calculateService, DiscountService discountService) {
-        this.inputView = inputView;
-        this.outputView = outputView;
-        this.calculateService = calculateService;
-        this.discountService = discountService;
-    }
 
     public void run() {
         outputEventPlannerGuide();
@@ -85,7 +77,8 @@ public class EventPlannerController {
 
     private void outputPreTotalPrice() { // 할인 전 총주문 금액 출력
         benefitDto = calculateService.calculateBenefits(ordersDto);
-        outputView.printPreTotalPrice(benefitDto.preTotalPrice());
+        int preTotalPrice = benefitDto.preTotalPrice();
+        outputView.printPreTotalPrice(preTotalPrice);
     }
 
     private void outputGiftAvailable() { // 증정 품복 부여 여부 출력

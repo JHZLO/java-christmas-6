@@ -1,8 +1,8 @@
 package christmas.domain.discount.strategies;
 
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL;
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL_DISCOUNT_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.SPECIAL_DISCOUNT_STRING;
+import static christmas.domain.discount.constants.DiscountNumeric.SPECIAL;
+import static christmas.domain.discount.constants.DiscountNumeric.SPECIAL_DISCOUNT_PRICE;
+import static christmas.domain.discount.constants.DiscountLabel.SPECIAL_DISCOUNT;
 
 import christmas.domain.Orders;
 import christmas.domain.discount.Discount;
@@ -19,7 +19,7 @@ public class SpecialDiscount implements Discount {
 
     @Override
     public String getDiscountName() {
-        return SPECIAL_DISCOUNT_STRING;
+        return SPECIAL_DISCOUNT.toString();
     }
 
     private boolean isSpecial(int orderDay){

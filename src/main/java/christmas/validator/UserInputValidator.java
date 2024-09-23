@@ -6,6 +6,7 @@ import static christmas.constants.exception.error.ErrorMessage.INVALID_DATE;
 import static christmas.constants.exception.error.ErrorMessage.INVALID_ORDER;
 
 import christmas.constants.exception.InputException;
+import java.util.Objects;
 
 public class UserInputValidator {
     public static void validateStringToDate(String input) { // 문자열-> 숫자 검증 과정
@@ -23,7 +24,7 @@ public class UserInputValidator {
     }
 
     private static boolean isEmptyOrders(String orders) {
-        return orders == null || orders.trim().isEmpty();
+        return Objects.isNull(orders) || orders.isBlank();
     }
 
     public static void validateOrder(String order) { // hyphen이 정상적으로 들어가 있는지 확인

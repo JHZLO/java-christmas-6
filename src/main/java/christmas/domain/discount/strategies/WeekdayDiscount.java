@@ -2,8 +2,8 @@ package christmas.domain.discount.strategies;
 
 import static christmas.constants.Number.EVENT_MONTH;
 import static christmas.constants.Number.EVENT_YEAR;
-import static christmas.domain.discount.constants.DiscountInfo.WEEKDAY_DISCOUNT_PRICE;
-import static christmas.domain.discount.constants.DiscountInfo.WEEKDAY_DISCOUNT_STRING;
+import static christmas.domain.discount.constants.DiscountNumeric.WEEKDAY_DISCOUNT_PRICE;
+import static christmas.domain.discount.constants.DiscountLabel.WEEKDAY_DISCOUNT;
 
 import christmas.domain.Orders;
 import christmas.domain.discount.Discount;
@@ -23,7 +23,7 @@ public class WeekdayDiscount implements Discount {
 
     @Override
     public String getDiscountName() {
-        return WEEKDAY_DISCOUNT_STRING;
+        return WEEKDAY_DISCOUNT.toString();
     }
 
     public boolean isWeekend(int orderDay) {

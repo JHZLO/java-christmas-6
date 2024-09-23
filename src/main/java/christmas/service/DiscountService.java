@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.discount.DiscountManager;
+import christmas.domain.discount.DiscountHandler;
 import christmas.dto.BenefitDto;
 import christmas.dto.DiscountDto;
 import christmas.dto.OrdersDto;
@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class DiscountService {
     public DiscountDto createDiscountDto(OrdersDto ordersDto, BenefitDto benefitDto) {
-        DiscountManager discountManager = new DiscountManager(ordersDto.orders(),
+        DiscountHandler discountHandler = new DiscountHandler(ordersDto.orders(),
             benefitDto.gift());
-        Map<String, Integer> discounts = discountManager.getAvailableDiscounts();
+        Map<String, Integer> discounts = discountHandler.getAvailableDiscounts();
         return new DiscountDto(discounts, sumAllPrice(discounts));
     }
 
