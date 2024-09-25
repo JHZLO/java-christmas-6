@@ -27,6 +27,12 @@ public class Orders {
             .sum();
     }
 
+    public int calculatePreTotalPrice() {
+        return orderProducts.stream()
+            .mapToInt(OrderProduct::calculatePrice)
+            .sum();
+    }
+
     private void validateOrders(List<OrderProduct> orderProducts) {
         validateDuplicateProducts(orderProducts);
         validateNotOnlyDrinks(orderProducts);
@@ -50,12 +56,6 @@ public class Orders {
         if (isOnlyDrinks(orderProducts)) {
             throw new InputException(INVALID_ORDER);
         }
-    }
-
-    public int calculatePreTotalPrice() {
-        return orderProducts.stream()
-            .mapToInt(OrderProduct::calculatePrice)
-            .sum();
     }
 
     private boolean isOnlyDrinks(List<OrderProduct> orderProducts) {
