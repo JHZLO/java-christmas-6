@@ -1,6 +1,5 @@
 package christmas.view;
 
-import static christmas.constants.Symbol.COUNT_STRING;
 import static christmas.constants.Symbol.FORMAT_NUMBER;
 import static christmas.constants.ViewMessage.ANNOUNCE_EVENT_BENEFITS;
 import static christmas.constants.ViewMessage.EVENT_PLANNER_NOTICE;

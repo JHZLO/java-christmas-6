@@ -1,24 +1,35 @@
-# 크리스마스 프로모션
-## 모델링
+# 크리스마스 프로모션 모델링
 
 ---
 - ## controller
   - ### `eventPlannerController`
 ---
 - ## domain
-  - ### 방문 날짜 = `visitDate`
+![img_1.png](img_1.png)
+  - ### 방문 날짜 - `VisitDate`
+  
   - ### 주문 - `Orders`
-    - 주문 메뉴 리스트 관리
+    - 주문 메뉴 - `OrderProduct`
+    - 방문 날짜 - `VisitDateDto`
     
   - ### 주문 메뉴 - `OrderProduct`
-    - 주문 개수
-    - 주문 가격
-  - ### Discount
-    - #### 할인 혜택 - `DiscountBenefits` - interface 구현
-      - 클스마스 디데이 할인 - `XmasDiscount`
-      - 평일 할인 - `WeekdatDiscount`
-      - 주말 할인 - `WeekendDiscount`
-      - 특별 할인 - `SpecialDiscount`
+    - 주문 개수 - `count`
+    - 주문 메뉴 - `Product`
+    
+  - ### discount
+    - `DiscountHandler`
+      - Discount 인터페이스 관리
+    
+    - `Discount` - interface 구현
+      - #### strategies
+        - 클스마스 디데이 할인 - `XmasDiscount`
+        - 평일 할인 - `WeekdayDiscount`
+        - 주말 할인 - `WeekendDiscount`
+        - 특별 할인 - `SpecialDiscount`
+        - 증정품 할인 - `Gift`
+      - #### constants
+        - String 상수 관리 - `DiscountLabel`
+        - Numeric 상수 관리 - `DiscountNumeric`
   - ### VO
     - #### 주문 메뉴 - `MenuType` - enum
         - 에피타이저
@@ -27,34 +38,22 @@
         - 음료
     - #### 메뉴 종류 - `Product` - enum
     - #### 이벤트 배지 - `EventBadgeType` - enum
-    - #### 이벤트 캘린더 - `EventCalendar` - record
 ---
 - ## service
-  - ### calculateService
+  - ### CalculateService
     - 할인 전 총 주문 금액 계산 - `CalculatePreTotalPrice`
-    - 총 혜택 금액 계산 - `CalculateTotalDiscount`
-    - 할인 후 예상 금액 계산 `CalculatePostTotalPrice`
-  - ### ConvertService
-    - 총 혜택 금액 -> 이벤트 배지 - `PriceToBadge`
-    - 총 주문 금액(10,000 이상) -> 혜택의 유무 - `PriceToBenefits`
+    - 증정 품복 부여 여부 계산 - `calculateBenefits`
+    - 금액에 따른 뱃지 타입 결정 계산 - `calculateBadgeType`
+  - ### DiscountService
+    - DiscountDto 생성 - `createDiscountDto`
+    - 총 혜택 금액 계산 - `sumAllPrice`
 
 ---
 - ## dto
   - ### `OrderDto`
-    - 메뉴 종류
-    - 메뉴 개수
-    - 메뉴 가격
   - ### `DiscountDto`
-    - 크리스마스
-    - 평일
-    - 주말
-    - 특별
-    - 총 할인 금액
-  - ### `EventDto`
-    - 증정 메뉴
-    - 혜택 금액
-    - 이벤트 배지
-    - 할인 전/후 금액
+  - ### `BenefitDto`
+  - ### `VisitDateDto`
 ---
 - ## view
   - ### `InputView`
@@ -72,13 +71,16 @@
     - 이벤트 배지 출력
 ---
 - ## util
-    - ### `DateParserUtil`
-    - ### `OrderParserUtil`
+  - ### format
+    - #### `BadgeFormatUtil`
+    - #### `DiscountFormatUtil`
+    - #### `OrdersFormatUtil`
+  - ### parser
+    - #### `DateParserUtil`
+    - #### `OrderParserUtil`
 ---
 - ## validator
   - ### `userInputValidator`
-  - ### `isValidMenu`
-    - 음료만 있는 경우 x
 ---
 - ## constants
   - ### `ErrorMessage`
@@ -90,3 +92,4 @@
     - 메뉴 개수 최대
     - 크리스마스 디데이 할인값 시작
     - 증정 메뉴 만족하는 금액
+  - ### `Symbol`
